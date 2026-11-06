@@ -12,7 +12,7 @@ class UpdateTareaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,10 @@ class UpdateTareaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titulo' => 'sometimes|required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'estado' => 'sometimes|required|in:pendiente,en_progreso,completada',
+            'fecha_limite' => 'sometimes|required|date',
         ];
     }
 }

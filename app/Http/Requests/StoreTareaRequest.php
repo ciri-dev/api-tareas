@@ -12,7 +12,7 @@ class StoreTareaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,10 @@ class StoreTareaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'estado' => 'required|in:pendiente,en_progreso,completada',
+            'fecha_limite' => 'required|date',
         ];
     }
 }

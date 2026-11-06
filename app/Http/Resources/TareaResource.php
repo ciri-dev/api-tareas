@@ -14,6 +14,13 @@ class TareaResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'titulo' => $this->titulo,
+            'descripcion' => $this->descripcion,
+            'estado' => $this->estado,
+            'fecha_limite' => $this->fecha_limite->format('Y-m-d'),
+            'creado_en' => $this->created_at->toDateTimeString(),
+        ];
     }
 }

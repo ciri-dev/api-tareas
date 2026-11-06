@@ -16,4 +16,8 @@ php artisan make:request UpdateTareaRequest
 php artisan make:resource TareaResource
 mig mod fac seed
 php artisan migrate --seed
+req res
+controller - crud
+routes
+php artisan route:list --path=api
 */
