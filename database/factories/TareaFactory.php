@@ -18,7 +18,10 @@ class TareaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'titulo' => fake()->sentence(4),
+            'descripcion' => fake()->optional()->paragraph(),
+            'estado' => fake()->randomElement(['pendiente', 'en_progreso', 'completada']),
+            'fecha_limite' => fake()->dateTimeBetween('now', '+3 months'),
         ];
     }
 }
